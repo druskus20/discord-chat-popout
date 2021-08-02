@@ -17,8 +17,13 @@ async function getButtonsContainer() {
   } while (buttons == null);
   return buttons
 }
+
+function openPopOutChat() {
+ alert("Hewwo");
+}
+
 // Insert a new button in the buttonsContainer (id="popout-chat-button")
-async function createPopOutButton() {
+async function InsertPopOutButton() {
   popOutButton = document.createElement('div');
   popOutButton.className = 'buttonContainer-28fw2U';
   popOutButton.innerHTML = `
@@ -33,8 +38,12 @@ async function createPopOutButton() {
    </div>
 </button>
   `;
-  buttons = await getButtonsContainer()
-  buttons.appendChild(popOutButton); 
+
+ popOutButton.addEventListener("click", openPopOutChat);
+ buttons = await getButtonsContainer()
+ buttons.appendChild(popOutButton); 
 }
 
-createPopOutButton()
+if (document.getElementById("popout-chat-button") == null){
+ InsertPopOutButton()
+}

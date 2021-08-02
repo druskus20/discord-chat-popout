@@ -3,14 +3,21 @@
   "description": "Open chats in pop out windows",
   "version": "1.0",
   "manifest_version": 3,
-  
-  "content_scripts": [
-   {
-    "run_at": "document_end",
-     "matches": ["*://discord.com/channels/*/*"],
-     "js": ["popoutbutton.js"]
-   }
- ]
+
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "host_permissions": [
+   "*://*.discord.com/channels/*/*"
+
+  ]
+
 }
 
 
