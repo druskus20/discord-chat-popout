@@ -11,15 +11,16 @@ function sleep(ms) {
 // Get the buttons container at the input text area
 //  after waiting for the loading screen 
 async function getButtonsContainer() {
-  do {
+ var [buttons] = document.getElementsByClassName(buttonContainerClass);
+ while (buttons == null) {
     await sleep(1000);
     var [buttons] = document.getElementsByClassName(buttonContainerClass);
-  } while (buttons == null);
+  } 
   return buttons
 }
 
 function openPopOutChat() {
- alert("Hewwo");
+ window.open(window.location.href,'popUpWindow','height=400,width=600,scrollbars=yes,menubar=no'); 
 }
 
 // Insert a new button in the buttonsContainer (id="popout-chat-button")
